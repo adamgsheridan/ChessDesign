@@ -52,9 +52,10 @@ public:
    bool isValid()   const         { return !(colRow & 0x88); }
    void setValid()                {              }
    void setInvalid()              {              }
-   bool operator <  (const Position & rhs) const { return true; }
-   bool operator == (const Position & rhs) const { return true; }
-   bool operator != (const Position & rhs) const { return true; }
+   bool operator <  (const Position & rhs) const { return colRow < rhs.colRow; }
+   bool operator > (const Position & rhs) const  { return colRow > rhs.colRow; }
+   bool operator == (const Position & rhs) const { return colRow == rhs.colRow; }
+   bool operator != (const Position & rhs) const { return colRow != rhs.colRow; }
    const Position & operator =  (const Position & rhs) { return *this; }
    
    // Location : The Position class can work with locations, which

@@ -37,14 +37,9 @@ void Position::setCol(int c) {
       colRow = 0xff;
       return;
    }
-
-   if (isInvalid()) {
-      // Reset row to 0 if currently invalid to build from scratch
-      colRow = (c << 4);
-   } else {
-      // Keep current row, replace column
-      colRow = (c << 4) | (colRow & 0x0F);
-   }
+   
+   uint8_t row = isValid() ? (colRow & 0x0F) : 0;
+   colRow = (c << 4) | row;
 }
 
 /******************************************
@@ -55,14 +50,9 @@ void Position::setRow(int r) {
       colRow = 0xff;
       return;
    }
-
-   if (isInvalid()) {
-      // Reset column to 0 if currently invalid to build from scratch
-      colRow = r;
-   } else {
-      // Keep current column, replace row
-      colRow = (colRow & 0xF0) | (r & 0x0F);
-   }
+   
+   uint8_t col = isValid() ? (colRow & 0xF0) : 0;
+   colRow = col | (r & 0x0F);
 }
 
 /******************************************
