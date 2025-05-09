@@ -51,7 +51,7 @@ public:
       set_col();
       set_row();
       set_both();
-      set_copy();
+      set_copy(); // 72%
       equal_not();
       equal_equals();
       lessthan_lessthan();
@@ -68,7 +68,7 @@ public:
       setXY_a8();
       setXY_a1();
       setXY_h8();
-      setXY_h1();
+      setXY_h1(); // 77%
       setXY_invalidXMin();
       setXY_invalidXMax();
       setXY_invalidYMin();
