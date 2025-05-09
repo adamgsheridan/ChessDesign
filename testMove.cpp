@@ -12,6 +12,9 @@
 #include "move.h"
 #include <cassert>
 
+#include <iostream>
+using namespace std;
+
  /*************************************
   * Constructor : default
   * Input: 
@@ -20,7 +23,13 @@
   **************************************/
 void TestMove::constructor_default() 
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   //setup
+   //exercise
+   Move move;
+   //verify
+   assert(move.source == INVALID);
+   assert(move.dest == INVALID);
+   //teardown
 }
 
  /*************************************
@@ -32,7 +41,18 @@ void TestMove::constructor_default()
   **************************************/
 void TestMove::constructString_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+
+   //setup
+   //exercise
+   Move move("e5e6");
+
+   //verify
+   assert(move.source.getCol() == 4);
+   assert(move.source.getRow() == 4);
+   assert(move.dest.getCol() == 4);
+   assert(move.dest.getRow() == 5);
+   assert(move.moveType == Move::MoveType::MOVE);
+   //teardown
 }
 
  /*************************************
