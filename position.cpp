@@ -27,3 +27,4 @@ istream & operator >> (istream & in,  Position & rhs)
    return in;   
 }
 
+

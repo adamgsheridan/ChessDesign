@@ -48,8 +48,8 @@ public:
    //               Allowing for comparisions, copying, etc.
    Position(const Position & rhs) {              }
    Position() : colRow(0x99)      {              }
-   bool isInvalid() const         { return true; }
-   bool isValid()   const         { return true; }
+   bool isInvalid() const         { return colRow & 0x88; }
+   bool isValid()   const         { return !(colRow & 0x88); }
    void setValid()                {              }
    void setInvalid()              {              }
    bool operator <  (const Position & rhs) const { return true; }
@@ -60,15 +60,15 @@ public:
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
    Position(int location) : colRow(0x99) { }
-   int getLocation() const               { return 9; }
+   int getLocation() const               { return getCol() * 8 + getRow(); }
    void setLocation(int location)        {           }
 
    
    // Row/Col : The position class can work with row/column,
    //           which are 0..7 and 0...7
    Position(int c, int r) : colRow(0x99)  {           }
-   virtual int getCol() const                     { return 9; }
-   virtual int getRow() const                     { return 9; }
+   virtual int getCol() const                 { return isValid() ? (colRow & 0xF0) >> 4 : -1; }
+   virtual int getRow() const                 { return isValid() ? colRow & 0x0F : -1; }
    void setRow(int r)                     {           }
    void setCol(int c)                     {           }
    void set(int c, int r)                 {           }

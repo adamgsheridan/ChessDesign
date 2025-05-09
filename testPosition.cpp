@@ -59,7 +59,7 @@ void PositionTest::getCol_zero()
    assertUnit(pos.colRow == 0x00);
 
 }  // TEARDOWN
-void PositionTest::getLocation_zero()
+void PositionTest::getLocation_zero() // 34%
 {
    // SETUP
    Position pos;
@@ -74,7 +74,7 @@ void PositionTest::getLocation_zero()
    assertUnit(pos.colRow == 0x00);
 
 }  // TEARDOWN
-void PositionTest::isValid_zero()
+void PositionTest::isValid_zero() // 39%
 {
    // SETUP
    Position pos;
@@ -89,7 +89,7 @@ void PositionTest::isValid_zero()
    assertUnit(pos.colRow == 0x00);
 
 }  // TEARDOWN
-void PositionTest::isInvalid_zero()
+void PositionTest::isInvalid_zero() // 44%
 {
    // SETUP
    Position pos;
@@ -306,7 +306,7 @@ void PositionTest::isInvalid_end()
  * |                                     (  )  |
  * +---a----b----c----d----e----f----g----h----+
  **************************************/
-void PositionTest::getRow_invalid()
+void PositionTest::getRow_invalid() // 55%
 {
    // SETUP
    Position pos;
@@ -321,7 +321,7 @@ void PositionTest::getRow_invalid()
    assertUnit(pos.colRow == 0xff);
 
 }  // TEARDOWN
-void PositionTest::getCol_invalid()
+void PositionTest::getCol_invalid() // 60%
 {
    // SETUP
    Position pos;
