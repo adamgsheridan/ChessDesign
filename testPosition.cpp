@@ -502,7 +502,7 @@ void PositionTest::isValid_colInvalid()
    assertUnit(pos.colRow == 0x95);
 
 }  // TEARDOWN
-void PositionTest::isInvalid_colInvalid()
+void PositionTest::isInvalid_colInvalid() // 60%
 {
    // SETUP
    Position pos;

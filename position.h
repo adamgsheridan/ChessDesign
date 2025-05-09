@@ -69,14 +69,14 @@ public:
    Position(int c, int r) : colRow(0x99)  {           }
    virtual int getCol() const                 { return isValid() ? (colRow & 0xF0) >> 4 : -1; }
    virtual int getRow() const                 { return isValid() ? colRow & 0x0F : -1; }
-   void setRow(int r)                     {           }
-   void setCol(int c)                     {           }
-   void set(int c, int r)                 {           }
+   void setRow(int r);
+   void setCol(int c);
+   void set(int c, int r)                 { setCol(c); setRow(r); }
 
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
    
-   Position(const char * s) : colRow(0x99) {   }
+   Position(const char * s);
    const Position & operator =  (const char     * rhs) { return *this; }
    const Position & operator =  (const string   & rhs) { return *this; }
 
