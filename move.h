@@ -12,6 +12,8 @@
 #include <string>  
 #include "position.h"  // Every move has two Positions as attributes  
 #include "pieceType.h" // A piece type  
+#include <iostream>
+
 using namespace std;
 
 class TestMove;  
