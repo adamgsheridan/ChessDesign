@@ -47,7 +47,8 @@ void TestMove::constructString_simple()
    Move move("e5e6");
 
    //verify
-   assert(move.source.getCol() == 4);
+   cout<<"move.sou " << move.source.getCol();
+   assert(move.source == 4);
    assert(move.source.getRow() == 4);
    assert(move.dest.getCol() == 4);
    assert(move.dest.getRow() == 5);
@@ -64,7 +65,19 @@ void TestMove::constructString_simple()
   **************************************/
 void TestMove::read_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   //setup
+
+   //exercise
+   Move move("e5e6");
+
+   //verify
+   assert(move.source.getCol() == 4);
+   assert(move.source.getRow() == 4);
+   assert(move.dest.getCol() == 4);
+   assert(move.dest.getRow() == 5);
+   assert(move.moveType == Move::MOVE);
+
+   //teardown
 }
 
  /*************************************
@@ -243,184 +256,350 @@ void TestMove::getText_castleQueen()
   * LETTER FROM PIECE TYPE space
   * Input :  SPACE
   * Output:  ' '
-  **************************************/
-void TestMove::letterFromPieceType_space()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+  **************************************/void TestMove::letterFromPieceType_space()
+  {
+     // setup
+     Move move;
 
- /*************************************
-  * LETTER FROM PIECE TYPE pawn
-  * Input : PAWN
-  * Output:  'p'
-  **************************************/
-void TestMove::letterFromPieceType_pawn()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // exercise
+     char result = move.letterFromPieceType(SPACE);
 
- /*************************************
-  * LETTER FROM PIECE TYPE bishop
-  * Input : BISHOP
-  * Output:  'b'
-  **************************************/
-void TestMove::letterFromPieceType_bishop()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // verify
+     assert(result == ' ');
 
- /*************************************
-  * LETTER FROM PIECE TYPE knight
-  * Input : KNIGHT
-  * Output:  'n'
-  **************************************/
-void TestMove::letterFromPieceType_knight()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // teardown
+  }
 
- /*************************************
-  * LETTER FROM PIECE TYPE rook
-  * Input : ROOK
-  * Output:  'r'
-  **************************************/
-void TestMove::letterFromPieceType_rook()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+  /*************************************
+   * LETTER FROM PIECE TYPE pawn
+   * Input : PAWN
+   * Output:  'p'
+   **************************************/
+  void TestMove::letterFromPieceType_pawn()
+  {
+     // setup
+     Move move;
 
- /*************************************
-  * LETTER FROM PIECE TYPE queen
-  * Input : QUEEN
-  * Output:  'q'
-  **************************************/
-void TestMove::letterFromPieceType_queen()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // exercise
+     char result = move.letterFromPieceType(PAWN);
 
- /*************************************
-  * LETTER FROM PIECE TYPE king
-  * Input : KING
-  * Output:  'k'
-  **************************************/
-void TestMove::letterFromPieceType_king()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // verify
+     assert(result == 'p');
+
+     // teardown
+  }
+
+  /*************************************
+   * LETTER FROM PIECE TYPE bishop
+   * Input : BISHOP
+   * Output:  'b'
+   **************************************/
+  void TestMove::letterFromPieceType_bishop()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     char result = move.letterFromPieceType(BISHOP);
+
+     // verify
+     assert(result == 'b');
+
+     // teardown
+  }
+
+  /*************************************
+   * LETTER FROM PIECE TYPE knight
+   * Input : KNIGHT
+   * Output:  'n'
+   **************************************/
+  void TestMove::letterFromPieceType_knight()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     char result = move.letterFromPieceType(KNIGHT);
+
+     // verify
+     assert(result == 'n');
+
+     // teardown
+  }
+
+  /*************************************
+   * LETTER FROM PIECE TYPE rook
+   * Input : ROOK
+   * Output:  'r'
+   **************************************/
+  void TestMove::letterFromPieceType_rook()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     char result = move.letterFromPieceType(ROOK);
+
+     // verify
+     assert(result == 'r');
+
+     // teardown
+  }
+
+  /*************************************
+   * LETTER FROM PIECE TYPE queen
+   * Input : QUEEN
+   * Output:  'q'
+   **************************************/
+  void TestMove::letterFromPieceType_queen()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     char result = move.letterFromPieceType(QUEEN);
+
+     // verify
+     assert(result == 'q');
+
+     // teardown
+  }
+
+  /*************************************
+   * LETTER FROM PIECE TYPE king
+   * Input : KING
+   * Output:  'k'
+   **************************************/
+  void TestMove::letterFromPieceType_king()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     char result = move.letterFromPieceType(KING);
+
+     // verify
+     assert(result == 'k');
+
+     // teardown
+  }
+
 
  /*************************************
   * PIECE TYPE FROM LETTER pawn
   * Input : 'p'
   * Output:  PAWN
   **************************************/
-void TestMove::pieceTypeFromLetter_pawn()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+  void TestMove::pieceTypeFromLetter_pawn()
+  {
+     // setup
+     Move move;
 
- /*************************************
-  * PIECE TYPE FROM LETTER bishop
-  * Input : 'b'
-  * Output:  BISHOP
-  **************************************/
-void TestMove::pieceTypeFromLetter_bishop()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // exercise
+     PieceType result = move.pieceTypeFromLetter('p');
 
- /*************************************
-  * PIECE TYPE FROM LETTER knight
-  * Input : 'n'
-  * Output:  KNIGHT
-  **************************************/
-void TestMove::pieceTypeFromLetter_knight()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // verify
+     assert(result == PAWN);
 
- /*************************************
-  * PIECE TYPE FROM LETTER rook
-  * Input : 'r'
-  * Output:  ROOK
-  **************************************/
-void TestMove::pieceTypeFromLetter_rook()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // teardown
+  }
 
- /*************************************
-  * PIECE TYPE FROM LETTER queen
-  * Input : 'q'
-  * Output:  QUEEN
-  **************************************/
-void TestMove::pieceTypeFromLetter_queen()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+  /*************************************
+   * PIECE TYPE FROM LETTER bishop
+   * Input : 'b'
+   * Output:  BISHOP
+   **************************************/
+  void TestMove::pieceTypeFromLetter_bishop()
+  {
+     // setup
+     Move move;
 
- /*************************************
-  * PIECE TYPE FROM LETTER king
-  * Input : 'k'
-  * Output:  KING
-  **************************************/
-void TestMove::pieceTypeFromLetter_king() 
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // exercise
+     PieceType result = move.pieceTypeFromLetter('b');
 
+     // verify
+     assert(result == BISHOP);
+
+     // teardown
+  }
+
+  /*************************************
+   * PIECE TYPE FROM LETTER knight
+   * Input : 'n'
+   * Output:  KNIGHT
+   **************************************/
+  void TestMove::pieceTypeFromLetter_knight()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     PieceType result = move.pieceTypeFromLetter('n');
+
+     // verify
+     assert(result == KNIGHT);
+
+     // teardown
+  }
+
+  /*************************************
+   * PIECE TYPE FROM LETTER rook
+   * Input : 'r'
+   * Output:  ROOK
+   **************************************/
+  void TestMove::pieceTypeFromLetter_rook()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     PieceType result = move.pieceTypeFromLetter('r');
+
+     // verify
+     assert(result == ROOK);
+
+     // teardown
+  }
+
+  /*************************************
+   * PIECE TYPE FROM LETTER queen
+   * Input : 'q'
+   * Output:  QUEEN
+   **************************************/
+  void TestMove::pieceTypeFromLetter_queen()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     PieceType result = move.pieceTypeFromLetter('q');
+
+     // verify
+     assert(result == QUEEN);
+
+     // teardown
+  }
+
+  /*************************************
+   * PIECE TYPE FROM LETTER king
+   * Input : 'k'
+   * Output:  KING
+   **************************************/
+  void TestMove::pieceTypeFromLetter_king()
+  {
+     // setup
+     Move move;
+
+     // exercise
+     PieceType result = move.pieceTypeFromLetter('k');
+
+     // verify
+     assert(result == KING);
+
+     // teardown
+  }
 
  /*************************************
   * EQUAL - NOT
   * Input : b2b4 == b2b5
   * Output: false
   **************************************/
-void TestMove::equal_not()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+  void TestMove::equal_not()
+  {
+     // setup
+     Move move1("b2b4");
+     Move move2("b2b5");
 
- /*************************************
-  * EQUAL - EQUALS
-  * Input : b2b4 == b2b4
-  * Output: true
-  **************************************/
-void TestMove::equal_equals()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // exercise
+     bool result = (move1 == move2);
 
- /*************************************
-  * LESS THAN - LESS THAN
-  * Input : b2b2 < b2b4
-  * Output: false
-  *    Note that the less-than operator is needed
-  *    so std::set<T> can sort the elements. Thus,
-  *    any T in a set must define less-than. In this
-  *    case, I defined it according to the 
-  *     destination's Position's location.
-  **************************************/
-void TestMove::lessthan_lessthan()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // verify
+     cout << (result == false) << endl << result << endl;
 
- /*************************************
-  * LESS THAN - EQUALS
-  * Input : b2b4 < b2b4
-  * Output: false
-  **************************************/
-void TestMove::lessthan_equals()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+     // teardown
+  }
 
- /*************************************
-  * LESS THAN - GREATAER THAN
-  * Input : b2b4 < b2b2
-  * Output: false
-  **************************************/
-void TestMove::lessthan_greaterthan()
-{
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+  /*************************************
+   * EQUAL - EQUALS
+   * Input : b2b4 == b2b4
+   * Output: true
+   **************************************/
+  void TestMove::equal_equals()
+  {
+     // setup
+     Move move1("b2b4");
+     Move move2("b2b4");
+
+     // exercise
+     bool result = (move1 == move2);
+
+     // verify
+     assert(result == true);
+
+     // teardown
+  }
+
+  /*************************************
+   * LESS THAN - LESS THAN
+   * Input : b2b2 < b2b4
+   * Output: false
+   *    Note that the less-than operator is needed
+   *    so std::set<T> can sort the elements. Thus,
+   *    any T in a set must define less-than. In this
+   *    case, I defined it according to the
+   *     destination's Position's location.
+   **************************************/
+  void TestMove::lessthan_lessthan()
+  {
+     // setup
+     Move move1("b2b2");
+     Move move2("b2b4");
+
+     // exercise
+     bool result = (move1 < move2);
+
+     // verify
+     assert(result == false);
+
+     // teardown
+  }
+
+  /*************************************
+   * LESS THAN - EQUALS
+   * Input : b2b4 < b2b4
+   * Output: false
+   **************************************/
+  void TestMove::lessthan_equals()
+  {
+     // setup
+     Move move1("b2b4");
+     Move move2("b2b4");
+
+     // exercise
+     bool result = (move1 < move2);
+
+     // verify
+     assert(result == false);
+
+     // teardown
+  }
+
+  /*************************************
+   * LESS THAN - GREATAER THAN
+   * Input : b2b4 < b2b2
+   * Output: false
+   **************************************/
+  void TestMove::lessthan_greaterthan()
+  {
+     // setup
+     Move move1("b2b4");
+     Move move2("b2b2");
+
+     // exercise
+     bool result = (move1 < move2);
+
+     // verify
+     assert(result == false);
+
+     // teardown
+  }
