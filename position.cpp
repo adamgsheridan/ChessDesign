@@ -37,9 +37,9 @@ void Position::setCol(int c) {
       colRow = 0xff;
       return;
    }
-   
+
    uint8_t row = isValid() ? (colRow & 0x0F) : 0;
-   colRow = (c << 4) | row;
+   set((c << 4) | row);
 }
 
 /******************************************
@@ -50,9 +50,33 @@ void Position::setRow(int r) {
       colRow = 0xff;
       return;
    }
-   
+
    uint8_t col = isValid() ? (colRow & 0xF0) : 0;
-   colRow = col | (r & 0x0F);
+   set(col | (r & 0x0F));
+}
+
+/******************************************
+ * SET
+ * uses two ints
+ ******************************************/
+void Position::set(int c, int r) {
+   colRow = (c << 4) | (r & 0x0F);
+   if (isInvalid())
+      colRow = 0xff;
+}
+
+/******************************************
+ * SET
+ * uses the unsigned int instead of two ints
+ ******************************************/
+void Position::set(uint8_t colRowNew) {
+   if (colRowNew & 0x88) {
+      std::cout << "Invalid colRow: " << std::hex << (int)colRowNew << "\n";
+      colRow = 0xff;
+   } else {
+      std::cout << "Valid colRow: " << std::hex << (int)colRowNew << "\n";
+      colRow = colRowNew;
+   }
 }
 
 /******************************************

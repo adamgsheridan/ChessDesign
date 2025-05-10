@@ -56,12 +56,12 @@ public:
    bool operator > (const Position & rhs) const  { return colRow > rhs.colRow; }
    bool operator == (const Position & rhs) const { return colRow == rhs.colRow; }
    bool operator != (const Position & rhs) const { return colRow != rhs.colRow; }
-   const Position & operator =  (const Position & rhs) { return *this; }
+   const Position & operator =  (const Position & rhs) { colRow = rhs.colRow; return *this; }
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
    Position(int location) : colRow(0x99) { }
-   int getLocation() const               { return getCol() * 8 + getRow(); }
+   int getLocation() const               { return getRow() * 8 + getCol(); }
    void setLocation(int location)        {           }
 
    
@@ -72,7 +72,7 @@ public:
    virtual int getRow() const                 { return isValid() ? colRow & 0x0F : -1; }
    void setRow(int r);
    void setCol(int c);
-   void set(int c, int r)                 { setCol(c); setRow(r); }
+   void set(int c, int r);
 
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
@@ -118,7 +118,7 @@ public:
    Position operator + (const Delta & rhs) const { return *this; }
 
 private:
-   void set(uint8_t colRowNew) { }
+   void set(uint8_t colRowNew);
    
    uint8_t colRow;
    static double squareWidth;
