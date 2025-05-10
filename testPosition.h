@@ -50,8 +50,8 @@ public:
       isInvalid_colInvalid();
       set_col();
       set_row();
-      set_both();
-      set_copy(); // 72%
+      set_both(); // 72%
+      set_copy(); // NOT PASSING
       equal_not();
       equal_equals();
       lessthan_lessthan();
@@ -70,13 +70,13 @@ public:
       setXY_h8();
       setXY_h1(); // 77%
       setXY_invalidXMin();
-      setXY_invalidXMax();
+      setXY_invalidXMax(); // 80%
       setXY_invalidYMin();
       setXY_invalidYMax();
 
       // Ticket 2: Position Text
       set_text();
-      set_string();
+      set_string(); // 90%
        
       // Ticket 3: Position Movement
       adjust_addColumn();

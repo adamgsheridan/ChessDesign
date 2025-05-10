@@ -56,12 +56,12 @@ public:
    bool operator > (const Position & rhs) const  { return colRow > rhs.colRow; }
    bool operator == (const Position & rhs) const { return colRow == rhs.colRow; }
    bool operator != (const Position & rhs) const { return colRow != rhs.colRow; }
-   const Position & operator =  (const Position & rhs) { return *this; }
+   const Position & operator =  (const Position & rhs) { colRow = rhs.colRow; return *this; }
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
    Position(int location) : colRow(0x99) { }
-   int getLocation() const               { return getCol() * 8 + getRow(); }
+   int getLocation() const               { return getRow() * 8 + getCol(); }
    void setLocation(int location)        {           }
 
    
@@ -72,14 +72,14 @@ public:
    virtual int getRow() const                 { return isValid() ? colRow & 0x0F : -1; }
    void setRow(int r);
    void setCol(int c);
-   void set(int c, int r)                 { setCol(c); setRow(r); }
+   void set(int c, int r);
 
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
    
-   Position(const char * s);
-   const Position & operator =  (const char     * rhs) { return *this; }
-   const Position & operator =  (const string   & rhs) { return *this; }
+   Position(const char * s)                            { parseText(s); }
+   const Position & operator =  (const char     * rhs) { parseText(rhs); return *this; }
+   const Position & operator =  (const string   & rhs) { parseText(rhs.c_str()); return *this; }
 
    
    // Pixels:    The Position class can work with screen coordinates,
@@ -112,13 +112,14 @@ public:
    //           offsets from a given location. This helps pieces move
    //           on the chess board.
    Position(const Position & rhs, const Delta & delta) : colRow(-1) {  }
-   void adjustRow(int dRow)   { }
-   void adjustCol(int dCol)   { }
-   const Position & operator += (const Delta & rhs) { return *this; }
-   Position operator + (const Delta & rhs) const { return *this; }
+   void adjustCol(int dCol)   { set(getCol() + dCol, getRow()); }
+   void adjustRow(int dRow)   { set(getCol(), getRow() + dRow); }
+   const Position & operator += (const Delta & rhs) { adjustRow(rhs.dRow); adjustCol(rhs.dCol); return *this; }
+   Position operator + (const Delta & rhs) const { Position result = *this; result += rhs; return result; } // this could be wrong ngl
 
 private:
-   void set(uint8_t colRowNew) { }
+   void set(uint8_t colRowNew);
+   void parseText(const char* s);
    
    uint8_t colRow;
    static double squareWidth;
