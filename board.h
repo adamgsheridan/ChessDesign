@@ -40,10 +40,10 @@ class Board
    friend TestBoard;
 
 public:
-
+	Board(): numMoves(0) { for (int i = 0; i < 8; i++) for (int j = 0; j < 8; j++) board[i][j] = nullptr; }
    // getters
-   virtual int  getCurrentMove() const { return -99;      }
-   virtual bool whiteTurn()      const { return false;  }
+   virtual int  getCurrentMove() const { return numMoves;      }
+   virtual bool whiteTurn()      const { if (numMoves % 2 == 1) return false; else return true; }
    virtual void display(const Position& posHover, const Position& posSelect) const {}
    virtual const Piece& operator [] (const Position& pos) const;
 
