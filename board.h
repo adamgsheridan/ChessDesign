@@ -2,7 +2,7 @@
  * Header File:
  *    BOARD 
  * Author:
- *    <your name here>
+ *    Adam Sheridan
  * Summary:
  *    A collection of pieces and the state of the board
  ************************************************************************/
@@ -40,7 +40,9 @@ class Board
    friend TestBoard;
 
 public:
+
 	Board(): numMoves(0) { for (int i = 0; i < 8; i++) for (int j = 0; j < 8; j++) board[i][j] = nullptr; }
+
    // getters
    virtual int  getCurrentMove() const { return numMoves;      }
    virtual bool whiteTurn()      const { if (numMoves % 2 == 1) return false; else return true; }

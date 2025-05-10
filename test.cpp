@@ -23,6 +23,7 @@
 void testRunner()
 {
    // unit tests
+<<<<<<< Updated upstream
    PositionTest().run();
    TestMove().run();
    TestBoard().run();
