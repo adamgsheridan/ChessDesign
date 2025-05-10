@@ -41,12 +41,14 @@ class Board
 
 public:
 
-	Board(): numMoves(0) { for (int i = 0; i < 8; i++) for (int j = 0; j < 8; j++) board[i][j] = nullptr; }
+	Board(): numMoves(0) { for (int i = 0; i < 8; i++) 
+                          for (int j = 0; j < 8; j++) board[i][j] = nullptr; }
 
    // getters
-   virtual int  getCurrentMove() const { return numMoves;      }
-   virtual bool whiteTurn()      const { if (numMoves % 2 == 1) return false; else return true; }
-   virtual void display(const Position& posHover, const Position& posSelect) const {}
+   virtual int  getCurrentMove() const { return numMoves;        }
+   virtual bool whiteTurn()      const { if (numMoves % 2 == 1)
+                                 return false; else return true; }
+   virtual void display(const Position& posHover, const Position& posSelect) const{}
    virtual const Piece& operator [] (const Position& pos) const;
 
    // setters
@@ -70,11 +72,11 @@ public:
    BoardDummy()                                           {                }
    ~BoardDummy()                                          {                }
 
-   void display(const Position& posHover,
-                const Position& posSelect) const          { assert(false); }
-   void move       (const Move& move)                     { assert(false); }
-   int  getCurrentMove() const                            { assert(false); return 0; }
-   bool whiteTurn()      const                            { assert(false); return false; }
+   void display(const Position&posHover,
+                const Position&posSelect) const{ assert(false); }
+   void move   (const Move&move)               { assert(false); }
+   int  getCurrentMove() const                 { assert(false); return 0; }
+   bool whiteTurn()      const                 { assert(false); return false; }
    Piece& operator [] (const Position& pos)
    { 
       assert(false); 

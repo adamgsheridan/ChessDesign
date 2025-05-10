@@ -46,17 +46,21 @@ public:
 
    // Position :    The Position class can work with other positions,
    //               Allowing for comparisions, copying, etc.
-   Position(const Position & rhs) {              }
-   Position() : colRow(0x99)      {              }
-   bool isInvalid() const         { return colRow & 0x88; }
+   Position(const Position & rhs) {                          }
+   Position() : colRow(0x99)      {                          }
+   bool isInvalid() const         { return colRow & 0x88;    }
    bool isValid()   const         { return !(colRow & 0x88); }
-   void setValid()                {              }
-   void setInvalid()              {              }
-   bool operator <  (const Position & rhs) const { return colRow < rhs.colRow; }
-   bool operator > (const Position & rhs) const  { return colRow > rhs.colRow; }
-   bool operator == (const Position & rhs) const { return colRow == rhs.colRow; }
-   bool operator != (const Position & rhs) const { return colRow != rhs.colRow; }
-   const Position & operator =  (const Position & rhs) { colRow = rhs.colRow; return *this; }
+   void setValid()                {                          }
+   void setInvalid()              {                          }
+   bool operator <  (const Position & rhs) const {return colRow < rhs.colRow; }
+   bool operator > (const Position & rhs) const  {return colRow > rhs.colRow; }
+   bool operator == (const Position & rhs) const {return colRow == rhs.colRow;}
+   bool operator != (const Position & rhs) const {return colRow != rhs.colRow;}
+   const Position & operator =  (const Position & rhs) 
+   { 
+      colRow = rhs.colRow;
+      return *this; 
+   }
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
@@ -67,9 +71,9 @@ public:
    
    // Row/Col : The position class can work with row/column,
    //           which are 0..7 and 0...7
-   Position(int c, int r) : colRow(0x99)  {           }
-   virtual int getCol() const                 { return isValid() ? (colRow & 0xF0) >> 4 : -1; }
-   virtual int getRow() const                 { return isValid() ? colRow & 0x0F : -1; }
+   Position(int c, int r) : colRow(0x99)  {                                   }
+   virtual int getCol() const { return isValid() ? (colRow & 0xF0) >> 4 : -1; }
+   virtual int getRow() const { return isValid() ? colRow & 0x0F : -1;        }
    void setRow(int r);
    void setCol(int c);
    void set(int c, int r);
@@ -77,9 +81,20 @@ public:
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
    
-   Position(const char * s)                            { parseText(s); }
-   const Position & operator =  (const char     * rhs) { parseText(rhs); return *this; }
-   const Position & operator =  (const string   & rhs) { parseText(rhs.c_str()); return *this; }
+   Position(const char * s)                            
+   { 
+      parseText(s); 
+   }
+   const Position & operator =  (const char     * rhs) 
+   { 
+      parseText(rhs); 
+      return *this; 
+   }
+   const Position & operator =  (const string   & rhs) 
+   { 
+      parseText(rhs.c_str()); 
+      return *this; 
+   }
 
    
    // Pixels:    The Position class can work with screen coordinates,
@@ -114,8 +129,16 @@ public:
    Position(const Position & rhs, const Delta & delta) : colRow(-1) {  }
    void adjustCol(int dCol)   { set(getCol() + dCol, getRow()); }
    void adjustRow(int dRow)   { set(getCol(), getRow() + dRow); }
-   const Position & operator += (const Delta & rhs) { adjustRow(rhs.dRow); adjustCol(rhs.dCol); return *this; }
-   Position operator + (const Delta & rhs) const { Position result = *this; result += rhs; return result; } // this could be wrong ngl
+   const Position & operator += (const Delta & rhs) 
+   { 
+      adjustRow(rhs.dRow); 
+      adjustCol(rhs.dCol); return *this; 
+   }
+   Position operator + (const Delta & rhs) const 
+   { 
+      Position result = *this; 
+      result += rhs; return result; 
+   } // this could be wrong ngl
 
 private:
    void set(uint8_t colRowNew);
