@@ -31,5 +31,8 @@ void testRunner()
    //PositionTest().run();
    TestMove().run();
    TestBoard().run();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }

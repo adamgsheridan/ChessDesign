@@ -17,7 +17,7 @@
 class Piece
 {
 public:
-   bool fWhite;
+	bool fWhite;
 };
 
 /***************************************************
