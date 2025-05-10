@@ -11,10 +11,11 @@
 #include <iostream>
 
 /******************************************
- * POSITION
- * constructor for using the texxt based construction
+ * PARSE TEXT
+ * method to parse text into a colRow
  ******************************************/
-Position::Position(const char * s) {
+void Position::parseText(const char* s)
+{
    if (s == nullptr   // null pointer
        || s[0] < 'a'  // less than a
        || s[0] > 'h'  // greater than h

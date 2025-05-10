@@ -76,7 +76,7 @@ public:
 
       // Ticket 2: Position Text
       set_text();
-      set_string();
+      set_string(); // 90%
        
       // Ticket 3: Position Movement
       adjust_addColumn();
