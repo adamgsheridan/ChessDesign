@@ -36,28 +36,28 @@ public:
       pieceTypeFromLetter_king();
       pieceTypeFromLetter_queen();
       equal_not();
-      //equal_equals();
-      //lessthan_lessthan();
-      //lessthan_equals();
-      //lessthan_greaterthan();
+      equal_equals();
+      lessthan_lessthan();
+      lessthan_equals();
+      lessthan_greaterthan();
 
       //// Ticket 5: Move Text
-      //read_simple();
-      //read_capture();
-      //read_enpassant();
-      //read_castleKing();
-      //read_castleQueen();
-      //constructString_simple();
-      //assign_simple();
-      //assign_capture();
-      //assign_enpassant();
-      //assign_castleKing();
-      //assign_castleQueen();
-      //getText_simple();
-      //getText_capture();
-      //getText_enpassant();
-      //getText_castleKing();
-      //getText_castleQueen();
+      read_simple();
+      read_capture();
+      read_enpassant();
+      read_castleKing();
+      read_castleQueen();
+      constructString_simple();
+      assign_simple();
+      assign_capture();
+      assign_enpassant();
+      assign_castleKing();
+      assign_castleQueen();
+      getText_simple();
+      getText_capture();
+      getText_enpassant();
+      getText_castleKing();
+      getText_castleQueen();
 
       report("Move");
    }

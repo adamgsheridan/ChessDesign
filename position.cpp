@@ -72,10 +72,8 @@ void Position::set(int c, int r) {
  ******************************************/
 void Position::set(uint8_t colRowNew) {
    if (colRowNew & 0x88) {
-      std::cout << "Invalid colRow: " << std::hex << (int)colRowNew << "\n";
       colRow = 0xff;
    } else {
-      std::cout << "Valid colRow: " << std::hex << (int)colRowNew << "\n";
       colRow = colRowNew;
    }
 }

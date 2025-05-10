@@ -1446,7 +1446,6 @@ void PositionTest::setXY_h1()
 void PositionTest::setXY_invalidXMin()
 {
    // SETUP
-   std::cout << "start setXY_invalidXMin()" << std::endl;
    
    Position pos;
    double squareWidth = pos.squareWidth;
@@ -1458,14 +1457,12 @@ void PositionTest::setXY_invalidXMin()
    pos.squareHeight = 37;
    int x = 12;
    int y = 37 + (37 * 5) + 24;
-   std::cout << "x: " << x << ", squareWidth: " << pos.getSquareWidth() << "\n";
 
    // EXERCISE
    pos.setXY(x, y);
 
    // VERIFY
-   std::cout << "colRow ["<< pos.colRow << "]"<< std::endl << std::endl;
-   std::cout << "end" << std::endl;
+
    assertUnit(pos.colRow == 0xff);
 
    // TEARDOWN
