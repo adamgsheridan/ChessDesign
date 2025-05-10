@@ -112,10 +112,10 @@ public:
    //           offsets from a given location. This helps pieces move
    //           on the chess board.
    Position(const Position & rhs, const Delta & delta) : colRow(-1) {  }
-   void adjustRow(int dRow)   { }
-   void adjustCol(int dCol)   { }
-   const Position & operator += (const Delta & rhs) { return *this; }
-   Position operator + (const Delta & rhs) const { return *this; }
+   void adjustCol(int dCol)   { set(getCol() + dCol, getRow()); }
+   void adjustRow(int dRow)   { set(getCol(), getRow() + dRow); }
+   const Position & operator += (const Delta & rhs) { adjustRow(rhs.dRow); adjustCol(rhs.dCol); return *this; }
+   Position operator + (const Delta & rhs) const { Position result = *this; result += rhs; return result; } // this could be wrong ngl
 
 private:
    void set(uint8_t colRowNew);
