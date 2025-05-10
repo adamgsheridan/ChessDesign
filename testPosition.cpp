@@ -502,7 +502,7 @@ void PositionTest::isValid_colInvalid()
    assertUnit(pos.colRow == 0x95);
 
 }  // TEARDOWN
-void PositionTest::isInvalid_colInvalid()
+void PositionTest::isInvalid_colInvalid() // 60%
 {
    // SETUP
    Position pos;
@@ -596,7 +596,7 @@ void PositionTest::set_row()
  * |                                           |
  * +---a----b----c----d----e----f----g----h----+
  **************************************/
-void PositionTest::set_both()
+void PositionTest::set_both() // 72%
 {
    // SETUP
    Position pos;
@@ -1460,6 +1460,7 @@ void PositionTest::setXY_invalidXMin()
    pos.setXY(x, y);
 
    // VERIFY
+   std::cout << "colRow ["<< pos.colRow << "]"<< std::endl << std::endl;
    assertUnit(pos.colRow == 0xff);
 
    // TEARDOWN

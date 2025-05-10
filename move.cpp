@@ -20,6 +20,16 @@ using namespace std;
  ***************************************************/
 Move::Move()
 {
+   dest = INVALID;
+   source = INVALID;
+}
+
+Move::Move(string s)
+{
+   //
+   dest     = s.substr(2, 2);
+   source   = s.substr(0, 2);
+   moveType = MOVE;
 }
 
 
