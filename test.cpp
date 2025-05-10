@@ -23,7 +23,13 @@
 void testRunner()
 {
    // unit tests
+<<<<<<< Updated upstream
    PositionTest().run();
 //   TestMove().run();
    //TestBoard().run();
+=======
+   //PositionTest().run();
+   TestMove().run();
+   TestBoard().run();
+>>>>>>> Stashed changes
 }

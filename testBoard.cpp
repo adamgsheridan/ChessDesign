@@ -342,11 +342,13 @@ void TestBoard::fetch_a1()
    PieceDummy piece;
    Piece* pSave = board.board[0][0];
    board.board[0][0] = &piece;
+
    Position00 pos;
    Piece* p = nullptr;
    // exercise
    p = &(board[pos]);
    // verify
+
    assertUnit(p == &piece);
    // teardown 
    board.board[0][0] = pSave;

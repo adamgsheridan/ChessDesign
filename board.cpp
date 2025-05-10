@@ -2,7 +2,7 @@
  * Source File:
  *    BOARD
  * Author:
- *    <your name here>
+ *    Adam Sheridan
  * Summary:
  *    A collection of pieces and the state of the board
  ************************************************************************/
@@ -15,7 +15,7 @@ using namespace std;
 
 
 // we really REALLY need to delete this.
-Space space;
+//Space space;
 
 /***********************************************
 * BOARD : GET
@@ -23,11 +23,12 @@ Space space;
 ***********************************************/
 const Piece& Board::operator [] (const Position& pos) const
 {
-   return space;
+   return *(board[pos.getCol()][pos.getRow()]);
 }
 Piece& Board::operator [] (const Position& pos)
 {
-   return space;
+
+   return *(board[pos.getCol()][pos.getRow()]);
 }
 
 
@@ -39,7 +40,7 @@ Piece& Board::operator [] (const Position& pos)
  *********************************************/
 BoardEmpty::BoardEmpty() : BoardDummy(), pSpace(nullptr)
 {
-   pSpace = new Space;
+   pSpace = new Piece;
 }
 BoardEmpty::~BoardEmpty() 
 {
